@@ -1,0 +1,6 @@
+  <header class='bg-white shadow-sm'>
+    <b:section id='header-section' maxwidgets='1' showaddelement='no'>
+      <b:widget id='Header1' locked='true' title='Gakusei JP' type='Header' version='2'>
+         </b:widget>
+    </b:section>
+  </header>
