@@ -1,0 +1,6 @@
+  <main class='container mx-auto px-2 py-6'>
+    <b:section id='main-content' showaddelement='yes'>
+      <b:widget id='Blog1' locked='true' title='العروض' type='Blog' version='2'>
+        <b:includable id='main' var='top'>
+           </b:includable>
+        
