@@ -1,0 +1,36 @@
+name: Build Blogger Theme
+
+# متى يعمل الكود؟ عند رفع أي تعديل على الفرع الرئيسي (main)
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**' # يعمل فقط إذا تم تعديل ملفات القالب
+
+permissions:
+  contents: write
+
+jobs:
+  build-theme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Create dist folder
+        run: mkdir -p dist
+
+      - name: Merge XML Files
+        # هذا الأمر يقرأ كل الملفات المرقمة في src ويدمجها في ملف واحد
+        run: cat src/*.xml > dist/theme.xml
+
+      - name: Commit and Push Generated Theme
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add dist/theme.xml
+          # إذا لم يكن هناك تغيير، لن يقوم بعمل commit وسيتجاوز الخطأ
+          git commit -m "🚀 Auto-build: Generated theme.xml" || exit 0
+          git push
