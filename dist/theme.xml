@@ -21,3 +21,10 @@
         <b:includable id='main' var='top'>
            </b:includable>
         
+        <b:includable id='aboutPostAuthor'/>
+        <b:includable id='commentPicker'/>
+        <b:includable id='post'/>
+        </b:widget>
+    </b:section>
+  </main>
+          
